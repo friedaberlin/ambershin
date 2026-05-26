@@ -245,7 +245,7 @@
   background: #fff;
   border: 1px solid var(--line-2);
   overflow: hidden;
-  transition: transform 280ms var(--ease), border-color 280ms var(--ease);
+  transition: transform 280ms var(--ease);
 }
 .ctx-card::before {
   content: '';
@@ -260,7 +260,6 @@
 .ctx-card--b2b2c::before { background: #6f4ad0; }
 .ctx-card:hover {
   transform: translateY(-2px);
-  border-color: var(--fg-3);
 }
 .ctx-card__head {
   display: flex;
