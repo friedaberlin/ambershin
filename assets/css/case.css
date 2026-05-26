@@ -816,3 +816,66 @@
   .challenge { flex: 0 0 270px; }
   .case-stat__num { font-size: 32px; }
 }
+/* ===== Levels — 3-column showcase ===== */
+.levels__showcase {
+  display: grid;
+  grid-template-columns: minmax(200px, 0.8fr) 1.2fr 1.4fr;
+  gap: 16px;
+  margin: 24px 0 40px;
+  align-items: stretch;
+}
+
+.levels__card {
+  background: var(--bg-soft);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+}
+
+.levels__card--pills {
+  background: #fbeee2;
+  padding: 32px 24px;
+}
+
+.levels__card--modal {
+  background: #fafafa;
+}
+
+.levels__card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.levels__pills-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.levels__pills-stack .level-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: default;
+}
+
+.level-pill__chev {
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+@media (max-width: 1024px) {
+  .levels__showcase {
+    grid-template-columns: 1fr;
+  }
+  .levels__card {
+    min-height: 200px;
+  }
+}
