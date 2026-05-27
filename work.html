@@ -43,7 +43,7 @@
 .work-feed {
   display: grid;
   grid-template-columns: 25% 1fr;
-  gap: 80px;
+  gap: 40px;
   padding-top: 48px;
 }
 
@@ -61,8 +61,6 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding-top: 14px;
-  border-top: 1px solid var(--line-2);
 }
 .work-pr__num {
   font-family: var(--font-mono);
@@ -93,6 +91,8 @@
 .work-strips {
   display: flex;
   flex-direction: column;
+  border-left: 1px solid var(--line-2);
+  padding-left: 40px;
 }
 
 .work-strip {
@@ -214,12 +214,18 @@
 @media (max-width: 1279px) and (min-width: 769px) {
   .work-feed {
     grid-template-columns: 35% 1fr;
-    gap: 56px;
+    gap: 32px;
+  }
+  .work-strips {
+    padding-left: 32px;
   }
   .work-strip {
     grid-template-columns: 1fr;
     gap: 20px;
     padding: 40px 0;
+  }
+  .work-strip__media {
+    margin-right: 24px;  /* keep image from touching right grid line */
   }
   .work-strip__hash { padding-top: 16px; }
 }
@@ -231,11 +237,11 @@
   .work-intro { padding: 100px 0 16px; }
   .work-feed {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 0;
     padding-top: 32px;
   }
 
-  /* Principles: horizontal scroll, 80% width cards */
+  /* Principles: horizontal scroll, 80% width cards + bottom divider */
   .work-principles {
     position: static;
     flex-direction: row;
@@ -244,9 +250,11 @@
     scroll-snap-type: x mandatory;
     /* break out of container padding so cards peek edge-to-edge */
     margin: 0 calc(-1 * var(--gutter));
-    padding: 0 var(--gutter);
+    padding: 0 var(--gutter) 40px;
     /* FIX: first card needs left padding when snapped */
     scroll-padding-inline: var(--gutter);
+    /* horizontal divider between principles and strips */
+    border-bottom: 1px solid var(--line-2);
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -259,6 +267,13 @@
     min-height: 140px;
   }
   .work-pr__body { max-width: none; }
+
+  /* Strips: remove vertical divider, add top spacing from horizontal divider */
+  .work-strips {
+    border-left: none;
+    padding-left: 0;
+    padding-top: 40px;
+  }
 
   /* Case strips: stack image above text */
   .work-strip {
