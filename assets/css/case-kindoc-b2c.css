@@ -8,7 +8,7 @@
    ============================================================ */
 :root {
   --bg:           #FBF9F8;
-  --bg-soft:      #F6F1EE;       /* image box bg — warm pinkish */
+  --bg-soft:      #F4EAE5;       /* warm pink-cream — Kindoc pastel mood */
   --fg:           #1A1814;
   --fg-2:         #2E2C28;
   --fg-3:         #555149;
@@ -17,7 +17,7 @@
   --muted-3:      #B6B2AA;
   --line-2:       #DEDBD0;
   --line-3:       #ECE9DE;
-  --accent:       #828B9D;
+  --accent:       #9D8590;       /* dusty rose-gray — eyebrows/labels (Kindoc mood) */
   --key:          #FF30A0;
   --ease:         cubic-bezier(0.4, 0, 0.2, 1);
   --gutter:       24px;
@@ -120,8 +120,27 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 28px;
+  margin-bottom: 16px;
 }
+/* App logo box (Andrea-style) */
+.case-logo {
+  display: grid;
+  place-items: center;
+  width: 68px;
+  height: 68px;
+  border-radius: 15px;
+  border: 1px solid var(--line-2);
+  background: #fff;
+  margin-bottom: 28px;
+  overflow: hidden;
+}
+.case-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
 .case-hero__title {
   font-family: var(--font-display);
   font-weight: 500;
