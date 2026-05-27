@@ -44,7 +44,7 @@
   display: grid;
   grid-template-columns: 25% 1fr;
   gap: 40px;
-  padding-top: 48px;
+  /* padding-top moved to columns so the vertical line meets work-intro's bottom border */
 }
 
 /* LEFT — sticky principles column */
@@ -55,6 +55,7 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+  padding-top: 48px;
 }
 
 .work-pr {
@@ -92,7 +93,7 @@
   display: flex;
   flex-direction: column;
   border-left: 1px solid var(--line-2);
-  padding-left: 40px;
+  padding: 48px 24px 0 40px;  /* top, right (breathing room), bottom, left (from divider) */
 }
 
 .work-strip {
@@ -217,15 +218,12 @@
     gap: 32px;
   }
   .work-strips {
-    padding-left: 32px;
+    padding: 48px 24px 0 32px;  /* keep right breathing room */
   }
   .work-strip {
     grid-template-columns: 1fr;
     gap: 20px;
     padding: 40px 0;
-  }
-  .work-strip__media {
-    margin-right: 24px;  /* keep image from touching right grid line */
   }
   .work-strip__hash { padding-top: 16px; }
 }
@@ -262,7 +260,7 @@
   .work-principles::-webkit-scrollbar { display: none; }
 
   .work-pr {
-    flex: 0 0 80%;
+    flex: 0 0 72%;
     scroll-snap-align: start;
     min-height: 140px;
   }
@@ -271,15 +269,14 @@
   /* Strips: remove vertical divider, add top spacing from horizontal divider */
   .work-strips {
     border-left: none;
-    padding-left: 0;
-    padding-top: 40px;
+    padding: 40px 0 0 0;
   }
 
   /* Case strips: stack image above text */
   .work-strip {
     grid-template-columns: 1fr;
     gap: 20px;
-    padding: 32px 0;
+    padding: 32px 0;  /* no horizontal padding — grid frame is hidden on mobile */
   }
   .work-strip__hash { padding-top: 16px; }
 }
