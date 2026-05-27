@@ -197,6 +197,116 @@ body[data-page="work-kindoc-b2c"] .rationale__body {
 }
 
 /* ============================================================
+   REFERENCE MARQUEE — auto-scrolling horizontal row
+   Images at uniform height, varying widths
+   ============================================================ */
+body[data-page="work-kindoc-b2c"] .reference-marquee {
+  margin: 32px 0 40px;
+  overflow: hidden;
+  /* Soft edge fade so images appear to fade in/out at the sides */
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+body[data-page="work-kindoc-b2c"] .reference-marquee__track {
+  display: flex;
+  gap: 16px;
+  width: max-content;
+  align-items: center;
+  animation: refMarquee 70s linear infinite;
+}
+
+body[data-page="work-kindoc-b2c"] .reference-marquee__track img {
+  height: 320px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Pause on hover for readability */
+body[data-page="work-kindoc-b2c"] .reference-marquee:hover .reference-marquee__track {
+  animation-play-state: paused;
+}
+
+@keyframes refMarquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (max-width: 768px) {
+  body[data-page="work-kindoc-b2c"] .reference-marquee__track img {
+    height: 240px;
+  }
+  body[data-page="work-kindoc-b2c"] .reference-marquee__track {
+    animation-duration: 50s;
+    gap: 12px;
+  }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  body[data-page="work-kindoc-b2c"] .reference-marquee__track {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   REFERENCE ANALYSIS — block under the marquee
+   ============================================================ */
+body[data-page="work-kindoc-b2c"] .ref-analysis {
+  max-width: 62ch;
+  margin: 0;
+}
+body[data-page="work-kindoc-b2c"] .ref-analysis__title {
+  font-family: 'DM Sans', var(--font-sans);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  margin: 0 0 12px;
+}
+body[data-page="work-kindoc-b2c"] .ref-analysis__body {
+  font-family: 'DM Sans', var(--font-sans);
+  font-size: 15px;
+  line-height: 1.65;
+  letter-spacing: -0.005em;
+  color: var(--fg-3);
+  margin: 0 0 24px;
+}
+body[data-page="work-kindoc-b2c"] .ref-analysis__obs {
+  padding: 20px 24px;
+  background: var(--bg-soft);
+  border-radius: 8px;
+}
+body[data-page="work-kindoc-b2c"] .ref-analysis__obs-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--key);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+body[data-page="work-kindoc-b2c"] .ref-analysis__list {
+  margin: 0;
+  padding-left: 18px;
+  list-style: disc;
+}
+body[data-page="work-kindoc-b2c"] .ref-analysis__list li {
+  font-family: 'DM Sans', var(--font-sans);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--fg-2);
+  letter-spacing: -0.005em;
+  margin-bottom: 6px;
+}
+body[data-page="work-kindoc-b2c"] .ref-analysis__list li:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================================
    CONCEPTS — 2x2 mockup grid (Type A/B/C/D)
    ============================================================ */
 body[data-page="work-kindoc-b2c"] .concepts {
@@ -357,10 +467,10 @@ body[data-page="work-kindoc-b2c"] .case-hero__mobile img {
   }
 }
 
-/* Mobile — small, tucked into top-right next to eyebrow + app icon */
+/* Mobile — small, tucked into top-right near the ceiling */
 @media (max-width: 640px) {
   body[data-page="work-kindoc-b2c"] .case-hero__mobile {
-    top: -20px;
+    top: -100px;
     right: -8px;
     width: 160px;
   }
