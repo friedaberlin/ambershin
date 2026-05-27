@@ -501,7 +501,7 @@ body[data-page="work-kindoc-b2c"] .case-hero__mobile img {
   height: auto;
   display: block;
   border-radius: 36px;
-  transform: perspective(1200px) rotateY(-8deg);
+  transform: perspective(1080px) rotateY(-10deg);
   transform-origin: center;
 }
 
