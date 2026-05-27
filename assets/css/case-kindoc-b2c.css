@@ -37,22 +37,66 @@ body[data-page="work-kindoc-b2c"] .nav {
 /* ============================================================
    APP LOGO BOX (hero)
    ============================================================ */
+@property --logo-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 body[data-page="work-kindoc-b2c"] .case-logo {
+  position: relative;
   display: grid;
   place-items: center;
   width: 68px;
   height: 68px;
   border-radius: 15px;
-  border: 1px solid var(--line-2);
   background: #fff;
   margin: 0 0 28px;
   overflow: hidden;
+  /* border handled by ::after pseudo for animated gradient */
 }
 body[data-page="work-kindoc-b2c"] .case-logo img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* Animated conic-gradient border */
+body[data-page="work-kindoc-b2c"] .case-logo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;                  /* border thickness */
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--logo-angle),
+    #FF43B1,                     /* color 1 */
+    #FF8383,                     /* color 2 */
+    #DA48FF,                     /* color 3 */
+    #FF43B1                      /* loop back to color 1 */
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+          mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  animation: caseLogoSpin 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes caseLogoSpin {
+  to { --logo-angle: 360deg; }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  body[data-page="work-kindoc-b2c"] .case-logo::after {
+    animation: none;
+  }
 }
 
 /* ============================================================
@@ -217,7 +261,7 @@ body[data-page="work-kindoc-b2c"] .reference-marquee {
 
 body[data-page="work-kindoc-b2c"] .reference-marquee__track {
   display: flex;
-  gap: 4px;
+  gap: 12px;
   width: max-content;
   align-items: center;
   animation: refMarquee 70s linear infinite;
@@ -248,7 +292,7 @@ body[data-page="work-kindoc-b2c"] .reference-marquee:hover .reference-marquee__t
   }
   body[data-page="work-kindoc-b2c"] .reference-marquee__track {
     animation-duration: 50s;
-    gap: 2px;
+    gap: 10px;
   }
 }
 
