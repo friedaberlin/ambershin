@@ -168,7 +168,8 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.08;
   letter-spacing: -0.03em;
   margin: 0 0 28px;
-  max-width: 24ch;
+  max-width: 30ch;
+  text-wrap: balance;
   color: var(--fg);
 }
 .case-hero__title em {
@@ -251,7 +252,8 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: -0.025em;
   margin: 0 0 28px;
   color: var(--fg);
-  max-width: 28ch;
+  max-width: 34ch;
+  text-wrap: balance;
 }
 .case-sect-title em {
   font-style: italic;
@@ -355,46 +357,53 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* ============================================================
-   DIRECTION GRID — 5 objectives (visible decision making)
+   DIRECTIONS — vertical row list (handles any odd count cleanly)
    ============================================================ */
 .directions {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px 40px;
-  margin: 32px 0 56px;
-}
-@media (max-width: 760px) {
-  .directions { grid-template-columns: 1fr; gap: 28px; }
-}
-.direction {
-  padding-top: 14px;
-  border-top: 1px solid var(--fg);
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  margin: 28px 0 48px;
+}
+.direction {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  column-gap: 24px;
+  row-gap: 4px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line-2);
+}
+.direction:last-child {
+  border-bottom: 1px solid var(--line-2);
 }
 .direction__num {
+  grid-row: 1 / 3;
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.06em;
   color: var(--accent);
+  padding-top: 3px;
 }
 .direction__label {
+  grid-column: 2;
+  grid-row: 1;
   font-family: 'DM Sans', var(--font-sans);
   font-size: 15px;
   font-weight: 600;
   line-height: 1.3;
   letter-spacing: -0.01em;
   color: var(--fg);
-  margin: 2px 0;
+  margin: 0;
 }
 .direction__body {
+  grid-column: 2;
+  grid-row: 2;
   font-family: 'DM Sans', var(--font-sans);
-  font-size: 13px;
+  font-size: 13.5px;
   line-height: 1.6;
   color: var(--fg-3);
   letter-spacing: -0.005em;
   margin: 0;
+  max-width: 60ch;
 }
 
 /* ============================================================
@@ -402,14 +411,11 @@ a { color: inherit; text-decoration: none; }
    ============================================================ */
 .concepts {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin: 24px 0 0;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 28px 0 0;
 }
-@media (max-width: 760px) {
-  .concepts { grid-template-columns: 1fr 1fr; gap: 20px; }
-}
-@media (max-width: 480px) {
+@media (max-width: 640px) {
   .concepts { grid-template-columns: 1fr; }
 }
 .concept { display: flex; flex-direction: column; gap: 10px; }
@@ -434,8 +440,8 @@ a { color: inherit; text-decoration: none; }
 .concept__label.is-selected { color: var(--key); }
 .concept__body {
   font-family: 'DM Sans', var(--font-sans);
-  font-size: 12.5px;
-  line-height: 1.5;
+  font-size: 13.5px;
+  line-height: 1.55;
   color: var(--fg-3);
   letter-spacing: -0.005em;
   margin: 0;
@@ -463,7 +469,8 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: -0.02em;
   color: var(--fg);
   margin: 0 0 14px;
-  max-width: 32ch;
+  max-width: 44ch;
+  text-wrap: balance;
 }
 .solution-block__title em { font-style: italic; }
 .solution-block__body {
