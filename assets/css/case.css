@@ -16,7 +16,7 @@
   grid-template-columns: var(--case-side) minmax(0, 1fr);
   gap: 64px;
   padding: 120px var(--gutter) 160px;
-  max-width: 1280px;
+  max-width: 1124px;
   margin: 0 auto;
 }
 
@@ -88,7 +88,7 @@
 .uxspec,
 .levels {
   max-width: 880px;
-  margin-left: auto;
+  margin-left: 0;
   margin-right: auto;
 }
 
