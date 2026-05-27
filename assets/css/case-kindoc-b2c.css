@@ -9,11 +9,18 @@
    ============================================================ */
 body[data-page="work-kindoc-b2c"] {
   --bg:           #FBF9F8;       /* warm off-white page bg */
-  --bg-soft:      #F6F1EE;       /* warm pink-cream — image boxes */
+  --bg-soft:      #F6F1EE;       /* warm cream — image boxes + callouts */
   --accent:       #9D8590;       /* dusty rose-gray — eyebrows/labels */
   --key:          #FF30A0;       /* Kindoc brand pink — used sparingly */
   --font-display: "Crimson Pro", "Times New Roman", serif;
   background: var(--bg);
+}
+
+/* ============================================================
+   CASE-NAV — explicit z-index so the hero mockup stays behind it
+   ============================================================ */
+body[data-page="work-kindoc-b2c"] .case-nav {
+  z-index: 10;
 }
 
 /* ============================================================
@@ -210,7 +217,7 @@ body[data-page="work-kindoc-b2c"] .reference-marquee {
 
 body[data-page="work-kindoc-b2c"] .reference-marquee__track {
   display: flex;
-  gap: 16px;
+  gap: 4px;
   width: max-content;
   align-items: center;
   animation: refMarquee 70s linear infinite;
@@ -241,7 +248,7 @@ body[data-page="work-kindoc-b2c"] .reference-marquee:hover .reference-marquee__t
   }
   body[data-page="work-kindoc-b2c"] .reference-marquee__track {
     animation-duration: 50s;
-    gap: 12px;
+    gap: 2px;
   }
 }
 
