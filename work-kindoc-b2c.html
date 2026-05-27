@@ -337,23 +337,50 @@
 
 <script src="assets/js/main.js"></script>
 <script>
-  /* Kindoc page — subtle hero mockup parallax */
+  /* Kindoc page — subtle hero parallax + scroll-triggered GNB */
   (function () {
     var mockup = document.querySelector('.case-hero__mobile');
-    if (!mockup) return;
-    if (window.matchMedia('(max-width: 1024px)').matches) return;
+    var hero   = document.querySelector('.case-hero');
+    var nav    = document.querySelector('.nav');
+    if (!hero || !nav) return;
 
+    var isDesktop = !window.matchMedia('(max-width: 1024px)').matches;
+    var navHeight = nav.offsetHeight || 72;
     var ticking = false;
+    var lastScrolled = false;
+
     function update() {
-      mockup.style.transform = 'translateY(' + (window.scrollY * 0.18) + 'px)';
+      var scrollY = window.scrollY;
+
+      /* Parallax — desktop only */
+      if (mockup && isDesktop) {
+        mockup.style.transform = 'translateY(' + (scrollY * 0.18) + 'px)';
+      }
+
+      /* GNB state — opaque after hero exits */
+      var heroBottom = hero.getBoundingClientRect().bottom;
+      var scrolled = heroBottom <= navHeight;
+      if (scrolled !== lastScrolled) {
+        nav.classList.toggle('is-scrolled', scrolled);
+        lastScrolled = scrolled;
+      }
+
       ticking = false;
     }
+
     window.addEventListener('scroll', function () {
       if (!ticking) {
         window.requestAnimationFrame(update);
         ticking = true;
       }
     }, { passive: true });
+
+    window.addEventListener('resize', function () {
+      isDesktop = !window.matchMedia('(max-width: 1024px)').matches;
+      navHeight = nav.offsetHeight || 72;
+    });
+
+    update();
   })();
 </script>
 </body>
