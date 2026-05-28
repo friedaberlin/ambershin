@@ -67,14 +67,14 @@ body[data-page="work-kindoc-b2c"] .case-logo::after {
   content: "";
   position: absolute;
   inset: 0;
-  padding: 1.5px;                  /* border thickness */
+  padding: 2px;                  /* border thickness */
   border-radius: inherit;
   background: conic-gradient(
     from var(--logo-angle),
-    #FF57B9,                     /* color 1 */
-    #FF9E8B,                     /* color 2 */
+    #FF43B1,                     /* color 1 */
+    #FF8383,                     /* color 2 */
     #DA48FF,                     /* color 3 */
-    #DC51FF                      /* loop back to color 1 */
+    #FF43B1                      /* loop back to color 1 */
   );
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
@@ -501,7 +501,7 @@ body[data-page="work-kindoc-b2c"] .case-hero__mobile img {
   height: auto;
   display: block;
   border-radius: 36px;
-  transform: perspective(1080px) rotateY(-10deg);
+  transform: perspective(1200px) rotateY(-8deg);
   transform-origin: center;
 }
 
@@ -545,4 +545,101 @@ body[data-page="work-kindoc-b2c"] .nav.is-scrolled {
   backdrop-filter: saturate(180%) blur(14px) !important;
   -webkit-backdrop-filter: saturate(180%) blur(14px) !important;
   border-bottom: 1px solid var(--line-3) !important;
+}
+
+/* ===== Outcomes — bar chart + stats (3-up row) ===== */
+body[data-page="work-kindoc-b2c"] .outcome-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 12px;
+  margin: 32px 0 8px;
+  align-items: stretch;
+}
+
+/* Bar-chart card */
+body[data-page="work-kindoc-b2c"] .barchart {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 22px 20px;
+  background: #fff;
+  border: 1px solid var(--line-3);
+  border-radius: 10px;
+}
+body[data-page="work-kindoc-b2c"] .barchart__title {
+  font-family: 'DM Sans', var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: -0.005em;
+  margin: 0 0 20px;
+}
+body[data-page="work-kindoc-b2c"] .barchart__plot {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: end;
+  gap: 14px;
+  flex: 1;
+  min-height: 150px;
+  border-bottom: 1.5px solid var(--fg);
+  padding-bottom: 0;
+}
+body[data-page="work-kindoc-b2c"] .bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  gap: 8px;
+}
+body[data-page="work-kindoc-b2c"] .bar__val {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+body[data-page="work-kindoc-b2c"] .bar.is-peak .bar__val {
+  color: #e31675;
+  font-weight: 600;
+}
+body[data-page="work-kindoc-b2c"] .bar__fill {
+  width: 100%;
+  max-width: 38px;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(180deg, #ff7ab0 0%, #ec1380 100%);
+  transform-origin: bottom;
+  animation: bar-grow 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+body[data-page="work-kindoc-b2c"] .bar:nth-child(1) .bar__fill { animation-delay: 0ms; }
+body[data-page="work-kindoc-b2c"] .bar:nth-child(2) .bar__fill { animation-delay: 80ms; }
+body[data-page="work-kindoc-b2c"] .bar:nth-child(3) .bar__fill { animation-delay: 160ms; }
+body[data-page="work-kindoc-b2c"] .bar:nth-child(4) .bar__fill { animation-delay: 240ms; }
+@keyframes bar-grow {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+body[data-page="work-kindoc-b2c"] .barchart__labels {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-top: 10px;
+}
+body[data-page="work-kindoc-b2c"] .barchart__labels span {
+  text-align: center;
+  font-family: 'DM Sans', var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--fg-3);
+}
+
+/* Reuse big-stat look inside the row */
+body[data-page="work-kindoc-b2c"] .outcome-row .big-stat {
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  body[data-page="work-kindoc-b2c"] .outcome-row {
+    grid-template-columns: 1fr;
+  }
 }
