@@ -579,8 +579,8 @@ body[data-page="work-kindoc-b2c"] .barchart__plot {
   align-items: end;
   gap: 14px;
   flex: 1;
-  min-height: 150px;
-  border-bottom: 1.5px solid var(--fg);
+  min-height: 80px;
+  border-bottom: 1px solid var(--line-2);
   padding-bottom: 0;
 }
 body[data-page="work-kindoc-b2c"] .bar {
@@ -600,16 +600,19 @@ body[data-page="work-kindoc-b2c"] .bar__val {
   white-space: nowrap;
 }
 body[data-page="work-kindoc-b2c"] .bar.is-peak .bar__val {
-  color: #e31675;
+  color: #b5587f;
   font-weight: 600;
 }
 body[data-page="work-kindoc-b2c"] .bar__fill {
   width: 100%;
-  max-width: 38px;
+  max-width: 22px;
   border-radius: 999px 999px 0 0;
-  background: linear-gradient(180deg, #ff7ab0 0%, #ec1380 100%);
+  background: linear-gradient(180deg, #e0b3c8 0%, #c98aa8 100%);
   transform-origin: bottom;
   animation: bar-grow 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+body[data-page="work-kindoc-b2c"] .bar.is-peak .bar__fill {
+  background: linear-gradient(180deg, #d98aae 0%, #b5587f 100%);
 }
 body[data-page="work-kindoc-b2c"] .bar:nth-child(1) .bar__fill { animation-delay: 0ms; }
 body[data-page="work-kindoc-b2c"] .bar:nth-child(2) .bar__fill { animation-delay: 80ms; }
