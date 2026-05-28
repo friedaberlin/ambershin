@@ -375,7 +375,6 @@ body[data-page="work-kindoc-b2c"] .concept {
   gap: 12px;
 }
 body[data-page="work-kindoc-b2c"] .concept__media {
-  aspect-ratio: 3/4;
   background: var(--bg-soft);
   border-radius: 8px;
   overflow: hidden;
@@ -383,8 +382,8 @@ body[data-page="work-kindoc-b2c"] .concept__media {
 }
 body[data-page="work-kindoc-b2c"] .concept__media img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
   display: block;
 }
 body[data-page="work-kindoc-b2c"] .concept__label {
